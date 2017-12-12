@@ -316,26 +316,29 @@ public class TaxCalc extends JPanel
     }
   
     public void actionPerformed(ActionEvent e) {
-    	Object source = e.getActionCommand();
-    	JComboBox cbSource = (JComboBox)e.getSource();
-    	state = (String)cbSource.getSelectedItem();
-    	if (source == citizenString) {
-            americanCitizen = true;
-        } else if (source == nonCitizenString) { 
-            americanCitizen = false;
-        } else if (source == blindString) { 
-            blind = true;
-        } else if (source == notBlindString) { 
-            blind = false;
-        } else if (source == marriedString) { 
-            married = true;
-        } else if (source == notMarriedString) {
-        	married = false;
-        } else if (source == spouseBlindString) {
-        	spouseBlind = true;
-        } else if (source == spouseNotBlindString) {
-        	spouseBlind = false;
-        }
+    	if (e.getSource() instanceof JComboBox) {
+    		JComboBox cbSource = (JComboBox)e.getSource();
+        	state = (String)cbSource.getSelectedItem();
+    	} else {
+	    	Object source = e.getActionCommand();
+	    	if (source == citizenString) {
+	            americanCitizen = true;
+	        } else if (source == nonCitizenString) { 
+	            americanCitizen = false;
+	        } else if (source == blindString) { 
+	            blind = true;
+	        } else if (source == notBlindString) { 
+	            blind = false;
+	        } else if (source == marriedString) { 
+	            married = true;
+	        } else if (source == notMarriedString) {
+	        	married = false;
+	        } else if (source == spouseBlindString) {
+	        	spouseBlind = true;
+	        } else if (source == spouseNotBlindString) {
+	        	spouseBlind = false;
+	        }
+    	}
     }
     public void propertyChange(PropertyChangeEvent e) {
         Object source = e.getSource();
